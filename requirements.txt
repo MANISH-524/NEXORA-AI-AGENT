@@ -1,0 +1,54 @@
+# ============================================================
+# NEXORA — Python Requirements
+# Install (latest compatible):  pip install -r requirements.txt
+# Reproducible (exact, verified): pip install -r requirements.lock
+#   requirements.lock pins every package to the tested, working version
+#   (regenerate with: pip freeze > requirements.lock).
+# Verified working set: torch 2.12 (CPU) · transformers 5.12 · numpy 2.4.6
+#   fastapi 0.138 · ultralytics 8.4.72 · peft 0.19 · websockets 14.2 · httpx 0.27
+# ============================================================
+
+# --- Core API + agent runtime ---
+fastapi>=0.109.0
+uvicorn[standard]>=0.27.0
+websockets>=12.0
+python-dotenv>=1.0.0
+httpx>=0.25.0,<0.28.0
+pydantic>=2.5.0
+
+# --- LLM providers ---
+openai>=1.40.0
+google-genai>=1.0.0
+
+# --- ML / Deep Learning (HuggingFace + PyTorch) ---
+torch>=2.2.0
+torchvision>=0.17.0
+torchaudio>=2.2.0
+transformers>=4.40.0
+datasets>=2.18.0
+sentence-transformers>=3.0.0
+accelerate>=0.29.0
+safetensors>=0.4.3
+tokenizers>=0.19.0
+huggingface-hub>=0.22.0
+peft>=0.11.0           # LoRA fine-tuning for the local NEXORA SLM
+
+# --- Scientific computing ---
+numpy>=1.26.0
+scipy>=1.13.0
+scikit-learn>=1.4.0
+pandas>=2.2.0
+
+# --- Computer Vision / YOLO ---
+ultralytics>=8.2.0
+opencv-python-headless>=4.9.0
+Pillow>=10.3.0
+
+# --- Time-series / Forecasting ---
+statsmodels>=0.14.0
+
+# --- Persistence (optional — system runs without it) ---
+supabase>=2.3.0
+
+# --- Dev / tests ---
+pytest>=7.4.0

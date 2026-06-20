@@ -1,0 +1,32 @@
+services:
+  nexora-api:
+    build:
+      context: .
+      dockerfile: Dockerfile.api
+    env_file: .env
+    ports:
+      - "8000:8000"
+    restart: unless-stopped
+
+  nexora-agent:
+    build:
+      context: .
+      dockerfile: Dockerfile.agent
+    env_file: .env
+    environment:
+      # Point the agent at the API service inside the compose network
+      - NEXORA_API_WS=ws://nexora-api:8000/ws
+    depends_on:
+      - nexora-api
+    restart: unless-stopped
+
+  # Optional dashboard (production static build served by nginx).
+  nexora-dashboard:
+    build:
+      context: ./dashboard
+      dockerfile: Dockerfile
+    ports:
+      - "3000:80"
+    depends_on:
+      - nexora-api
+    restart: unless-stopped

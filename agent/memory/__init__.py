@@ -1,0 +1,1 @@
+# NEXORA memory module

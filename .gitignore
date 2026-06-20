@@ -20,3 +20,8 @@ _checkpoints/
 
 # Local audit mirror
 data/audit_log.jsonl
+
+# Removed from repo (kept locally): legacy build guide + scratch/generated artifacts
+NEXORA.md
+_apilog.txt
+data/sample/*.png

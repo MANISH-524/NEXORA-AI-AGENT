@@ -19,6 +19,10 @@
 
 [Quickstart](#-quickstart) · [How it runs](#-how-it-runs) · [How it responds](#-how-it-responds) · [Benchmarks](#-benchmarks--performance) · [Architecture](#-architecture) · [Author](#-author)
 
+<br/>
+
+![NEXORA — autonomous recovery agent](docs/assets/landing.png)
+
 </div>
 
 ---
@@ -132,6 +136,14 @@ Every cycle, NEXORA perceives the fleet and returns a structured, explainable de
 ```
 
 The agent then **acts**: fires the P1 escalation, writes a signed audit entry, and streams the cycle to the dashboard over WebSocket. The risk math (`risk = RPO% × criticality/100 × tier_multiplier`) is **recomputed deterministically** on every decision, so the number is always exact — and if the model ever proposed an out-of-policy action, the strict guardrail corrects it before it reaches the operator.
+
+---
+
+## 🖥️ The Operations Console
+
+A real-time React console streams every agent cycle over WebSocket — fleet health, highest-risk assets with their actions, risk-by-tier breakdown, and a fleet-aware **copilot** you can ask "what should I prioritize right now?". Ten tabs cover Overview, Live Feed, Forecast, AI Engine, Reasoning, Simulation, Assets, Risk Map, Restore, and Audit.
+
+![NEXORA operations console](docs/assets/console.png)
 
 ---
 
